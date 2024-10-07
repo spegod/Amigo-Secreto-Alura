@@ -19,7 +19,7 @@ function adicionar () {
 function sortear () {
     let i = 0;
     let numerosSorteados = []
-    while (i <= numeroDeAmigos) {
+    while (i < numeroDeAmigos) {
         let indiceSorteio = Math.floor(Math.random() * numeroDeAmigos);
         if (!numerosSorteados.includes(indiceSorteio)) {
             numerosSorteados.push(indiceSorteio);
@@ -27,10 +27,10 @@ function sortear () {
         }
     }
     console.log(numerosSorteados);
-    console.log(numeroDeAmigos);
 }
 
 function reiniciar () {
     arrayAmigos = [];
     document.getElementById('lista-amigos').textContent = '';
+    numeroDeAmigos = 0
 }
