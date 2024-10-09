@@ -8,6 +8,16 @@ let childrenAmigos = listaDeAmigos.children;
 function adicionar () {
 
     let nomeDoAmigo = document.getElementById('nome-amigo').value;
+    let nomeDoAmigoBack = document.getElementById('nome-amigo').value.toUpperCase();
+
+    if (nomeDoAmigo == '') {
+        alert('Insira o nome de um amigo!');
+        return;
+    } else if (arrayAmigos.includes(nomeDoAmigoBack)) {
+        alert('Esse nome já foi adicionado!');
+        document.getElementById('nome-amigo').value = '';
+        return;
+    }
 
     if (listaDeAmigos.textContent == '') {
         //listaDeAmigos.textContent = nomeDoAmigo;
@@ -17,7 +27,7 @@ function adicionar () {
         listaDeAmigos.innerHTML += `<a onclick="removerAmigo('${nomeDoAmigo}')" href="#" id="${nomeDoAmigo}" class="form__link">, ${nomeDoAmigo}</a>`;
     }
     document.getElementById('nome-amigo').value = '';
-    arrayAmigos.push(nomeDoAmigo);
+    arrayAmigos.push(nomeDoAmigoBack);
     console.log(arrayAmigos);
     numeroDeAmigos++;
 }
